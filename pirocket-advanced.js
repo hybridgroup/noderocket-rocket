@@ -23,15 +23,36 @@ function Rocket(opts) {
   };
 
   var robot = Cylon.robot({
-    connection: {name: 'raspi', adaptor: 'raspi'},
-    devices: [
-      { name: 'bmp180',   driver: 'bmp180' },
-      { name: 'servo',    driver: 'servo',  pin: 12 },
-      { name: 'statusLed', driver: 'led',    pin: 15 },
-      { name: 'statusLed2', driver: 'led',    pin: 18 },
-      { name: 'btn1', driver: 'button',    pin: 11 },
-      { name: 'btn2', driver: 'button',    pin: 16 }
-    ],
+    connections: {
+      raspi: {
+        adaptor: 'raspi'
+      }
+    },
+    devices: {
+      bmp180: {
+        driver: 'bmp180'
+      },
+      servo: {
+        driver: 'servo',
+        pin: 12
+      },
+      statusLed: {
+        driver: 'led',
+        pin: 15
+      },
+      statusLed2: {
+        driver: 'led',
+        pin: 18
+      },
+      btn1: {
+        driver: 'button',
+        pin: 11
+      },
+      btn2: {
+        driver: 'button',
+        pin: 16
+      }
+    },
 
     work: function(my) {
       my.statusLed.turnOn();
